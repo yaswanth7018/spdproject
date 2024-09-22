@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+      <style>
+        form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-<img src="https://a.rgbimg.com/users/g/gr/gramps/300/mZOobZm.jpg" alt="">
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  transition: border-color 0.3s ease-in-out;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+form input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+form input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+form .errorlist {
+  color: red;
+  margin-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+
+<h3 align="center">AUTO MOBILE SYSTEM</h3>
+<hr><hr>
+<style>
+body, html {
+  height: 100%;
+}
+body {
+  background-image: url("https://a.rgbimg.com/users/g/gr/gramps/300/mZOobZm.jpg");
+    height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+ nav {
+  background-color: #333; /* change the background color to your desired color */
+  overflow: hidden;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #ddd; /* change the hover background color to your desired color */
+  color: black;
+}
+
+</style>
+<nav>
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a>&nbsp;&nbsp;</li>
+        <li><a href="{% url 'registration' %}">Registration</a>&nbsp;</li>
+        <li><a href="{% url 'userlogin' %}">Login</a>&nbsp;</li>
+        <li><a href="{% url 'adminlogin' %}">AdminLogin</a>&nbsp;</li>
+    </ul>
+</nav>
+
+<br><br>
+<h1 align="center">REGISTER WITH YOUR DETAILS</h1>
+<body>
+<center>
+<form method="post">
+{% csrf_token %}
+    {{form.as_p}}
+    <br>
+    <input type="submit" value="Register">
+</form>
+    </center>
+</body>
+</body>
+</html>

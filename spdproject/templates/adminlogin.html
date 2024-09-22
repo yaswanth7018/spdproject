@@ -1,0 +1,164 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django</title>
+</head>
+<body>
+ <title>
+        {% block 'title' %}
+        Main Home
+        {% endblock %}
+    </title>
+</head>
+<body>
+<br>
+<h3 align="center">AUTO MOBILE SYSTEM</h3>
+<hr><hr>
+<style >
+body, html {
+  height: 100%;
+}
+body {
+  background-image: url("https://global.discourse-cdn.com/elastic/original/3X/9/0/90df22ab443662d632838fd82f6ea38b2cba025a.png");
+    height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+    nav {
+  background-color: #333; /* change the background color to your desired color */
+  overflow: hidden;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #ddd; /* change the hover background color to your desired color */
+  color: black;
+}
+
+</style>
+<nav>
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a>&nbsp;&nbsp;</li>
+        <li><a href="{% url 'registration' %}">Registration</a>&nbsp;</li>
+        <li><a href="{% url 'adminlogin' %}">AdminLogin</a>&nbsp;</li>
+        <li><a href="{% url 'userlogin' %}">Login</a>&nbsp;</li>
+    </ul>
+</nav>
+<style>
+
+ body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h3 {
+            text-align: center;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background-color:#2ADE8A;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+            margin-right: 10px;
+        }
+        form {
+            width: 400px;
+            margin: 0 auto;
+            border: 1px solid #2ADE8A;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #2ADE8A;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #e15c95;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+{% block 'body' %}
+
+<h3 align="center"><mark>{{msg}}</mark></h3>
+
+<h1 align="Center">ADMIN LOGIN</h1>
+
+<form method="post" action="{% url 'checkadminlogin' %}">
+    {% csrf_token %}
+
+<table align=center>
+
+<tr>
+<td><label>Username</label></td>
+<td><input type="text" name="ausername" required="required"/></td>
+</tr>
+
+<tr><td></td></tr>
+
+<tr>
+<td><label>Password</label></td>
+<td><input type="password" name="apassword" required="required"/></td>
+</tr>
+
+<tr><td></td></tr>
+<tr><td></td></tr>
+
+<tr align=center>
+<td colspan=2><input type="submit" value="Login" class="button"></td>
+</tr>
+
+</table>
+
+</form>
+
+
+{% endblock %}
+
+</body>
+</body>
+</body>
+</html>
+</DOCTYPE>

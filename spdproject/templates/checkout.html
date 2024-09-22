@@ -1,0 +1,113 @@
+<!-- cart/checkout.html -->
+
+<h2>Checkout Page</h2>
+
+<form method="POST" action="{% url 'checkout' %}">
+  {% csrf_token %}
+
+  <!-- Billing Information -->
+  <h3>Billing Information</h3>
+  <input type="text" name="full_name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="text" name="address" placeholder="Address" required>
+  <input type="text" name="city" placeholder="City" required>
+  <input type="text" name="postal_code" placeholder="Postal Code" required>
+
+  <!-- Payment Information -->
+  <h3>Payment Information</h3>
+  <div id="card-element">
+    <!-- Stripe.js will insert the card input field here -->
+  </div>
+  <button id="card-button" type="submit">Pay Now</button>
+</form>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  var stripe = Stripe('YOUR_STRIPE_PUBLIC_KEY');
+  var elements = stripe.elements();
+  var cardElement = elements.create('card');
+  cardElement.mount('#card-element');
+
+  var cardButton = document.getElementById('card-button');
+  cardButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
+      billing_details: {
+        name: document.querySelector('input[name="full_name"]').value,
+        email: document.querySelector('input[name="email"]').value,
+        address: {
+          line1: document.querySelector('input[name="address"]').value,
+          city: document.querySelector('input[name="city"]').value,
+          postal_code: document.querySelector('input[name="postal_code"]').value,
+        }
+      }
+    }).then(function(result) {
+      if (result.error) {
+        console.error(result.error.message);
+      } else {
+        // The payment method has been successfully created
+        // Now submit the form to complete the checkout process
+        var form = document.querySelector('form');
+        form.submit();
+      }
+    });
+  });
+</script>
+<style>
+    /* cart.css */
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  margin-top: 20px;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#card-element {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#card-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#card-button:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+</style>

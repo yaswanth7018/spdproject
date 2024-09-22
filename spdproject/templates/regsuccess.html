@@ -1,0 +1,73 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <title>
+        {% block 'title' %}
+        Success
+        {% endblock %}
+    </title>
+</head>
+<body>
+
+<h3 align="center">AUTO MOBILE SYSTEM</h3>
+<hr><hr>
+<style >
+body, html {
+  height: 100%;
+}
+body {
+  background-image: url("https://wallup.net/wp-content/uploads/2018/10/04/209337-cars-drawings-white-background.jpg");
+    height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+    nav {
+  background-color: #333; /* change the background color to your desired color */
+  overflow: hidden;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #ddd; /* change the hover background color to your desired color */
+  color: black;
+}
+
+</style>
+<nav>
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a>&nbsp;&nbsp;</li>
+        <li><a href="{% url 'registration' %}">Registration</a>&nbsp;</li>
+        <li><a href="{% url 'userlogin' %}">Login</a>&nbsp;</li>
+    </ul>
+</nav>
+
+</body>
+<br><br>
+
+<h2 align="center" style="color:lightgreen">{{msg}}</h2>
+<h3 align="center" style="color:black"> Click on Login</h3>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>productView</title>
+</head>
+<body>
+ <title>
+        {% block 'title' %}
+        Main Home
+        {% endblock %}
+    </title>
+</head>
+<body>
+
+<h3 align="center">AUTO MOBILE SYSTEM</h3>
+<hr><hr>
+<style >
+body, html {
+  height: 100%;
+}
+body {
+  background-image: url("https://img.freepik.com/premium-vector/wooden-terrace-texture-with-bokeh-background_64749-228.jpg?size=626&ext=jpg&ga=GA1.1.1072131177.1680369997&semt=ais");
+    height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+    nav {
+  background-color: #333; /* change the background color to your desired color */
+  overflow: hidden;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #ddd; /* change the hover background color to your desired color */
+  color: black;
+}
+
+</style>
+<nav>
+    <ul>
+
+        <li><a href="{% url 'adminhome' %}">Home</a></li>
+        <li><a href="{% url 'addproduct' %}">Add Product</a></li>
+        <li><a href="{% url 'viewaproducts' %}">view new products</a>&nbsp;&nbsp;</li>
+        <li><a href="{% url 'adminlogout' %}">Logout</a></li>
+
+         </ul>
+</nav>
+<style>
+
+ {% block 'style' %}
+
+* {
+   box-sizing: border-box;
+}
+.imageColumn {
+   float: left;
+   width: 25%;
+   padding: 10px;
+}
+
+        .navbar{
+            background-color: black;
+            border-radius: 30px;
+
+        }
+        .navbar ul{
+            overflow: auto;
+        }
+        .navbar li{
+            float:left;
+            list-style: none;
+            margin: 13px 20px;
+
+        }
+        .navbar li a{
+            padding: 3px 3px;
+            text-decoration: none;
+            color: white;
+        }
+        .navbar li a:hover{
+            color: red
+        }
+        .search{
+            float: right;
+            color: white;
+            padding: 12px 75px;
+        }
+        .navbar input{
+            border: 2px solid black;
+            border-radius: 14px;
+            padding: 3px 17px;
+            width: 129px;
+        }
+
+input[type=text],input[type=password],input[type=number],input[type=email],
+select,input[type=date]
+{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label
+{
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-weight: bold;
+}
+
+{% endblock %}
+
+
+    </style>
+
+
+
+</head>
+<body>
+<h1 align="center">View All Products</h1>
+
+Total Products = {{count}}  <br><br>
+
+<style>
+    .product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.product-image {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 200px;
+}
+
+.product-details {
+  text-align: center;
+}
+
+.product-name {
+  margin-top: 0;
+}
+
+.product-category {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+</style>
+
+<div class="product-list">
+  {% for product in productlist %}
+  <div class="product-card">
+    <div class="product-image">
+      <img src="{{product.image.url}}" alt="{{product.name}}">
+    </div>
+    <div class="product-details">
+      <h3 class="product-name">Model={{product.name}}</h3>
+      <p class="product-category">Category={{product.category}}</p>
+      <p class="product-description">Description={{product.description}}</p>
+      <p class="product-price">Price={{product.price}}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</body>
+</body>
+</body>
+</html>

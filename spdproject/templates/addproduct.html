@@ -1,0 +1,210 @@
+{<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django</title>
+</head>
+<body>
+ <title>
+        {% block 'title' %}
+        Main Home
+        {% endblock %}
+    </title>
+</head>
+</body>
+<style >
+body, html {
+  height: 100%;
+}
+body {
+  background-image: url("https://i.pinimg.com/originals/0e/13/c0/0e13c0a0c04befda2b72c1d5754a2368.jpg");
+    height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+    nav {
+  background-color: #333; /* change the background color to your desired color */
+  overflow: hidden;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #ddd; /* change the hover background color to your desired color */
+  color: black;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1 align=center>Auto Mobile System</h1>
+
+<br>
+
+ <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{% url 'adminhome' %}">Home</a></li>
+                <li><a href="{% url 'addproduct' %}">Add Product</a></li>
+                <li><a href="{% url 'viewaproducts' %}">view new products</a>&nbsp;&nbsp;</li>
+                <li><a href="{% url 'adminlogout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+<style>
+    form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+
+  background-<img src="https://i.pinimg.com/originals/0e/13/c0/0e13c0a0c04befda2b72c1d5754a2368.jpg" alt="">
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  transition: border-color 0.3s ease-in-out;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+form input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+form input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+form .errorlist {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.product-image {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.product-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.product-price {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-form {
+  margin-bottom: 20px;
+}
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+{% block 'body' %}
+
+<h3 align="center"><mark>{{msg}}</mark></h3>
+
+<h3 align="Center"><u>Add Product</u></h3>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<table align=center>
+
+    {% for field in productform %}
+
+<tr>
+<td><label>{{field.label}}</label></td>
+<td>{{field}}</td>
+</tr>
+
+    {% endfor %}
+
+<tr><td></td></tr>
+
+<tr align=center>
+<td colspan=2><input type="submit" value="Add" class="button"></td>
+</tr>
+
+</table>
+
+</form>
+
+
+{% endblock %}
+
+</body>
+</body>
+
+
+</html>
+</DOCTYPE>

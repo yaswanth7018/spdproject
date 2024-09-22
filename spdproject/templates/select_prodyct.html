@@ -1,0 +1,6 @@
+<h1>Select Product</h1>
+<p>You have selected {{ product.name }}. Please proceed to payment.</p>
+<form method="post" action="{% url 'process_payment' product.pk %}">
+  {% csrf_token %}
+  <input type="submit" value="Proceed to Payment">
+</form>

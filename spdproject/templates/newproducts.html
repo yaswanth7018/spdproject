@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django</title>
+</head>
+<body>
+ <title>
+        {% block 'title' %}
+        Main Home
+        {% endblock %}
+    </title>
+</head>
+<body>
+
+<h3 align="center">AUTO MOBILE SYSTEM</h3>
+<hr><hr>
+<style >
+body, html {
+  height: 100%;
+}
+body {
+  background-image: url("https://wallup.net/wp-content/uploads/2018/10/04/209337-cars-drawings-white-background.jpg");
+    height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+    nav {
+  background-color: #333; /* change the background color to your desired color */
+  overflow: hidden;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #ddd; /* change the hover background color to your desired color */
+  color: black;
+}
+
+</style>
+<nav>
+    <ul>
+        <li><a href="{% url 'userhome' %}">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li><a href="{% url 'spareparts' %}">Spareparts</a>&nbsp;</li>
+        <li><a href="{% url 'userlogout' %}">Logout</a>&nbsp;&nbsp;</li>
+
+         </ul>
+</nav>
+
+<style>
+
+{% block 'style' %}
+
+* {
+   box-sizing: border-box;
+}
+.imageColumn {
+   float: left;
+   width: 25%;
+   padding: 10px;
+}
+
+        .navbar{
+            background-color: black;
+            border-radius: 30px;
+
+        }
+        .navbar ul{
+            overflow: auto;
+        }
+        .navbar li{
+            float:left;
+            list-style: none;
+            margin: 13px 20px;
+
+        }
+        .navbar li a{
+            padding: 3px 3px;
+            text-decoration: none;
+            color: white;
+        }
+        .navbar li a:hover{
+            color: red
+        }
+        .search{
+            float: right;
+            color: white;
+            padding: 12px 75px;
+        }
+        .navbar input{
+            border: 2px solid black;
+            border-radius: 14px;
+            padding: 3px 17px;
+            width: 129px;
+        }
+
+input[type=text],input[type=password],input[type=number],input[type=email],
+select,input[type=date],input[type=file]
+{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label
+{
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-weight: bold;
+}
+
+ {% endblock %}
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+{% block 'body' %}
+
+<h3 align="center"><mark>{{msg}}</mark></h3>
+
+<h3 align="Center"><u>Add Product</u></h3>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<table align=center>
+
+    {% for field in productform %}
+
+<tr>
+<td><label>{{field.label}}</label></td>
+<td>{{field}}</td>
+</tr>
+
+    {% endfor %}
+
+<tr><td></td></tr>
+
+<tr align=center>
+<td colspan=2><input type="submit" value="Add" class="button"></td>
+</tr>
+
+</table>
+
+</form>
+
+
+{% endblock %}
+
+</body>
+</body>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>
+        {% block 'title' %}
+        Main Home
+        {% endblock %}
+    </title>
+</head>
+<body>
+
+<h3 align="center">AUTO MOBILE SYSTEM</h3>
+<hr><hr>
+<style >
+body, html {
+background-color:
+  height: 100%;
+}
+body {
+
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #c4cce0;
+}
+    nav {
+  background-color: #333; /* change the background color to your desired color */
+  overflow: hidden;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #ddd; /* change the hover background color to your desired color */
+  color: black;
+}
+
+</style>
+<nav>
+    <ul>
+        <li><a href="{% url 'index' %}">Home</a>&nbsp;&nbsp;</li>
+        <li><a href="{% url 'registration' %}">Registration</a>&nbsp;</li>
+        <li><a href="{% url 'userlogin' %}">Login</a>&nbsp;</li>
+        <li><a href="{% url 'adminlogin' %}">AdminLogin</a>&nbsp;</li>
+
+    </ul>
+</nav>
+
+<hr>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/w3css/3/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<body>
+
+<!-- Slide Show -->
+<section>
+  <img class="mySlides" src="https://wallpaperaccess.com/full/1569861.jpg"
+  style="width:100%">
+  <img class="mySlides" src="https://media.istockphoto.com/id/1315800156/photo/automobile-mechanic-repairman-hands-repairing-a-car-engine-automotive-workshop-with-a-wrench.jpg?b=1&s=170667a&w=0&k=20&c=1mTACjOQsCywELazdevG3b9137Lfzh4ejXMFGMBBUi0="
+  style="width:100%">
+  <img class="mySlides" src="https://wallpaperaccess.com/full/2947967.jpg"
+  style="width:100%">
+</section>
+
+<!-- Band Description -->
+<section class="w3-container w3-center w3-content" >
+  <h2 class="w3-wide" align="center">Auto Mobile System</h2>
+    <p class="w3-opacity"><b><i>Auto mobile service</i></b></p>
+  <p1>A vehicle is composed of basic mechanical parts and devices making up its systems; each of them fulfills a specific function such as Fuel supply system, Transmission system, Suspension system, Braking system, Steering system, Cooling system, Electrical system, Exhaust system.</p1>
+</section>
+
+<script>
+// Automatic Slideshow - change image every 3 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 3000);
+}
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+</style>
+</head>
+<body>
+<h2 align="center">CONTACT US</h2>
+<!-- Add font awesome icons -->
+<a href="https://www.facebook.com/dadi.laxmi/" class="fa fa-facebook" target="blank"></a>
+<a href="https://www.instagram.com/____yash___143/" class="fa fa-instagram"target="blank"></a>
+<a href="https://mail.google.com/mail/u/0/?tab=wm#inbox" class="fa fa-google"target="blank"></a>
+</body>
+</html>
+
+
+
+</body>
+</body>
+</html>
